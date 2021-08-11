@@ -1,0 +1,39 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1628703846
+      author: Aled Davies
+      changes:
+        - createTable:
+            tableName: amoratisation_schedule
+            columns:
+              - column:
+                  name: id
+                  type: varchar
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: total_cost_of_assets
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deposit
+                  type: float
+                  defaultValue: 0.0
+              - column:
+                  name: yearly_interest_as_decimal
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number_of_monthly_repayments
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ballon_payment
+                  type: float
+                  defaultValue: 0.0
+
