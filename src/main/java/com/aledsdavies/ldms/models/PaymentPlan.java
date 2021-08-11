@@ -9,9 +9,10 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 
@@ -21,25 +22,27 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Table(name = "payment_schedule")
-public class PaymentSchedule {
+public class PaymentPlan {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    @NotEmpty(message = "Total Costs is a required")
+    @DecimalMin("0.00")
     private BigDecimal totalCostOfAssets;
 
     @Builder.Default
+    @DecimalMin("0.00")
     private BigDecimal deposit = BigDecimal.ZERO;
 
-    @NotEmpty(message = "Yearly Interest is required")
+    @DecimalMin("0.00")
     private BigDecimal yearlyInterestAsDecimal;
 
-    @NotEmpty(message = "Monthly payments is required")
     @Column(name = "number_of_monthly_repayments")
+    @Min(0)
     private int monthlyPayments;
 
     @Builder.Default
+    @DecimalMin("0.00")
     private BigDecimal balloonPayment = BigDecimal.ZERO;
 }

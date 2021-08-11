@@ -1,7 +1,7 @@
 package com.aledsdavies.ldms;
 
-import com.aledsdavies.ldms.repositories.PaymentScheduleRepository;
-import com.aledsdavies.ldms.models.PaymentSchedule;
+import com.aledsdavies.ldms.repositories.PaymentPlanRepository;
+import com.aledsdavies.ldms.models.PaymentPlan;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -14,12 +14,12 @@ import java.math.BigDecimal;
 @SpringBootApplication
 @Slf4j
 @RequiredArgsConstructor
-public class LoanScheduleApplication {
+public class PaymentPlanApplication {
 
-    private final PaymentScheduleRepository paymentScheduleRepository;
+    private final PaymentPlanRepository paymentPlanRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(LoanScheduleApplication.class, args);
+        SpringApplication.run(PaymentPlanApplication.class, args);
     }
 
 
@@ -32,7 +32,7 @@ public class LoanScheduleApplication {
     public void initialize() {
         log.info("Loading data to the database...");
 
-        paymentScheduleRepository.save(PaymentSchedule.builder()
+        paymentPlanRepository.save(PaymentPlan.builder()
                 .totalCostOfAssets(new BigDecimal(25000))
                 .yearlyInterestAsDecimal(new BigDecimal("0.075"))
                 .monthlyPayments(60)
