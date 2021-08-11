@@ -5,7 +5,7 @@ databaseChangeLog:
       author: Aled Davies
       changes:
         - createTable:
-            tableName: amoratisation_schedule
+            tableName: payment_schedule
             columns:
               - column:
                   name: id
@@ -33,7 +33,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: ballon_payment
+                  name: balloon_payment
                   type: float
                   defaultValue: 0.0
 

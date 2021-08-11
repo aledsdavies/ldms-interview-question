@@ -21,6 +21,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	// Entity Validation
+	implementation 'javax.validation:validation-api'
+
 	// Database dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.liquibase:liquibase-core'
