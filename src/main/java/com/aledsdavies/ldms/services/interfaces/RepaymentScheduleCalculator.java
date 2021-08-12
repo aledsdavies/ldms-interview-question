@@ -1,4 +1,4 @@
-package com.aledsdavies.ldms.service.interfaces;
+package com.aledsdavies.ldms.services.interfaces;
 
 import com.aledsdavies.ldms.models.RepaymentSchedule;
 import com.aledsdavies.ldms.models.PaymentPlan;

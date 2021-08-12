@@ -1,10 +1,10 @@
-package com.aledsdavies.ldms.service;
+package com.aledsdavies.ldms.services;
 
 import com.aledsdavies.ldms.models.PaymentPlan;
 import com.aledsdavies.ldms.models.RepaymentSchedule;
 import com.aledsdavies.ldms.repositories.PaymentPlanRepository;
-import com.aledsdavies.ldms.service.interfaces.RepaymentScheduleCalculator;
-import com.aledsdavies.ldms.service.interfaces.RepaymentScheduleService;
+import com.aledsdavies.ldms.services.interfaces.RepaymentScheduleCalculator;
+import com.aledsdavies.ldms.services.interfaces.RepaymentScheduleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

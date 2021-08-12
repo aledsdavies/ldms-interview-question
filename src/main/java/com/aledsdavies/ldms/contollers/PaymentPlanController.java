@@ -2,7 +2,7 @@ package com.aledsdavies.ldms.contollers;
 
 import com.aledsdavies.ldms.models.PaymentPlan;
 import com.aledsdavies.ldms.models.RepaymentSchedule;
-import com.aledsdavies.ldms.service.interfaces.RepaymentScheduleService;
+import com.aledsdavies.ldms.services.interfaces.RepaymentScheduleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,12 +46,12 @@ class PaymentPlanController {
     }
 
     @PostMapping()
-    public void create(@RequestBody PaymentPlan paymentSchedule) {
+    public void create(@Valid @RequestBody PaymentPlan paymentSchedule) {
         this.repaymentScheduleService.create(paymentSchedule);
     }
 
     @PutMapping()
-    public void update(@RequestBody PaymentPlan paymentSchedule) {
+    public void update(@Valid @RequestBody PaymentPlan paymentSchedule) {
         this.repaymentScheduleService.update(paymentSchedule);
     }
 

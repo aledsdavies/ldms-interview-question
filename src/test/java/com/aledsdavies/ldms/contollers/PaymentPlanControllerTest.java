@@ -2,7 +2,7 @@ package com.aledsdavies.ldms.contollers;
 
 import com.aledsdavies.ldms.models.PaymentPlan;
 import com.aledsdavies.ldms.repositories.PaymentPlanRepository;
-import com.aledsdavies.ldms.service.interfaces.RepaymentScheduleService;
+import com.aledsdavies.ldms.services.interfaces.RepaymentScheduleService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -57,17 +57,28 @@ class PaymentPlanControllerTest {
 
     @Test
     void create_whenSuccessfulReturnsOk() throws Exception {
-        this.mockMvc.perform(post("/")).andDo(print()).andExpect(status().isOk());
+        var plan = PaymentPlan.builder()
+                .totalCostOfAssets(25000)
+                .yearlyInterestAsDecimal(0.075)
+                .monthlyPayments(60)
+                .build();
+
+        this.mockMvc.perform(post("/").content(objectMapper.writeValueAsString(plan))
+                        .contentType("application/json"))
+                .andDo(print()).andExpect(status().isOk());
     }
 
     @Test
     void create_whenCreateIsInvalid() throws Exception {
-        var plan = PaymentPlan.builder().build();
+        var plan = PaymentPlan.builder()
+                .totalCostOfAssets(-1)
+                .monthlyPayments(-12)
+                .build();
 
         this.mockMvc.perform(
                 post("/").content(objectMapper.writeValueAsString(plan))
                         .contentType("application/json")
-                ).andDo(print()).andExpect(status().is4xxClientError());
+        ).andDo(print()).andExpect(status().is4xxClientError());
     }
 
     @Test

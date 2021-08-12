@@ -13,8 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -28,21 +27,26 @@ public class PaymentPlan {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
 
-    @DecimalMin("0.00")
-    private BigDecimal totalCostOfAssets;
+    @DecimalMin("0.0")
+    @NotNull
+    private double totalCostOfAssets;
 
     @Builder.Default
-    @DecimalMin("0.00")
-    private BigDecimal deposit = BigDecimal.ZERO;
+    @DecimalMin("0.0")
+    @NotNull
+    private double deposit = 0.0;
 
-    @DecimalMin("0.00")
-    private BigDecimal yearlyInterestAsDecimal;
+    @DecimalMin("0.0")
+    @NotNull
+    private double yearlyInterestAsDecimal;
 
     @Column(name = "number_of_monthly_repayments")
-    @Min(0)
+    @Min(1)
+    @NotNull
     private int monthlyPayments;
 
     @Builder.Default
-    @DecimalMin("0.00")
-    private BigDecimal balloonPayment = BigDecimal.ZERO;
+    @DecimalMin("0.0")
+    @NotNull
+    private double balloonPayment = 0.0;
 }

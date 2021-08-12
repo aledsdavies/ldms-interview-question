@@ -1,7 +1,7 @@
 package com.aledsdavies.ldms;
 
-import com.aledsdavies.ldms.repositories.PaymentPlanRepository;
 import com.aledsdavies.ldms.models.PaymentPlan;
+import com.aledsdavies.ldms.repositories.PaymentPlanRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -9,17 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
-import java.math.BigDecimal;
-
 @SpringBootApplication
 @Slf4j
 @RequiredArgsConstructor
-public class PaymentPlanApplication {
+public class LoanScheduleApplication {
 
     private final PaymentPlanRepository paymentPlanRepository;
 
     public static void main(String[] args) {
-        SpringApplication.run(PaymentPlanApplication.class, args);
+        SpringApplication.run(LoanScheduleApplication.class, args);
     }
 
 
@@ -32,10 +30,19 @@ public class PaymentPlanApplication {
     public void initialize() {
         log.info("Loading data to the database...");
 
+        // Without balloon
         paymentPlanRepository.save(PaymentPlan.builder()
-                .totalCostOfAssets(new BigDecimal(25000))
-                .yearlyInterestAsDecimal(new BigDecimal("0.075"))
-                .monthlyPayments(60)
+                .totalCostOfAssets(20000)
+                .yearlyInterestAsDecimal(0.075)
+                .monthlyPayments(12)
+                .build());
+
+        // With balloon
+        paymentPlanRepository.save(PaymentPlan.builder()
+                .totalCostOfAssets(20000)
+                .yearlyInterestAsDecimal(0.075)
+                .monthlyPayments(12)
+                .balloonPayment(10000)
                 .build());
 
         log.info("Loading data successful Completed...");

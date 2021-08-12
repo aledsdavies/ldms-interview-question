@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class RepaymentPeriod {
     private int period;
-    private BigDecimal payment;
-    private BigDecimal principle;
-    private BigDecimal interest;
-    private BigDecimal balance;
+    private double payment;
+    private double principle;
+    private double interest;
+    private double balance;
 }
