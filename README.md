@@ -38,3 +38,17 @@ convenience.
 6. I also added examples of validation annotations that could be used on the PaymentPlan model. This allows us to
    validate the input coming in form the API's clients and return a formatted error to the client using the exception
    handler method at the bottom of the controller.
+
+## Thank you note
+
+This ended up taking me slight longer than the 3 hours. I total the work at just over 4 hours. The majority of that came
+from issues I was having with precision which meant that although the majority of the app was completed by 11pm on the
+11th August it meant that I was unable to get the tests working correctly. I have then this morning (12th of August)
+fixed my mistakes on a fresh pair of eyes which was around 3/4 of an hours work.
+
+I have also taken the time to run through the application and add some documentation to explain my though processes
+where I thought it would be appropriate.
+
+Overall this was a fun little coding challenge, and hopefully this is enough to showcase how I would approach testing
+and building an application like this. I appreciate the opportunity and the time you have given to me in this process.
+All the best Aled. 

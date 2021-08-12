@@ -7,6 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+/*
+    The bulk of the business logic is in the AnnuityRepaymentScheduleCalculator as a result I took a TDD approach to testing
+    this service. After writing the tests I then implemented the functionality in the service and ensured that it passed all
+    my tests.
+
+    The rest of the application is hooking different services together using spring beans and autowiring and does not
+    contain any business logic. The way I like to test these other services which don't contain business logic is to use
+    End-to-End testing on the whole service which I have omitted from this project. However, you could also use integration
+    testing for some finer grained testing on services which require other integrations.
+ */
+
 @SpringBootTest
 class AnnuityRepaymentScheduleCalculatorTest {
 

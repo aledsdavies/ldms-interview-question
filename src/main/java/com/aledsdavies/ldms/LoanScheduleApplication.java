@@ -14,14 +14,14 @@ import org.springframework.context.event.EventListener;
 @RequiredArgsConstructor
 public class LoanScheduleApplication {
 
-    private final PaymentPlanRepository paymentPlanRepository;
+    private final PaymentPlanRepository paymentPlanRepository; // Can Be removed if the initialize function is removed
 
     public static void main(String[] args) {
         SpringApplication.run(LoanScheduleApplication.class, args);
     }
 
 
-    /**
+    /*
      * I Created this as a convenience method for preloading some data into the database for the sake of this technical
      * test. The H2 data is currently running in memory for convenience as a result will get cleared each run of the
      * application.
