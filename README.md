@@ -10,7 +10,7 @@ gradle wrapper on your machine if you have java installed)
 
 ## Viewing the App
 
-I have left the controller pointing to the root of the project this allows easy access to the data I have initialised
+I have left the controller pointing to the root (/) of the project this allows easy access to the data I have initialised
 into the database on launch.
 
 NOTE: The database uses an in memory database so any values you insert will be removed at launch. I did this for
