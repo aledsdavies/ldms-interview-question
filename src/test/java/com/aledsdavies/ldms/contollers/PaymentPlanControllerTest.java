@@ -23,6 +23,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/*
+    This is an example of the testing I like to do for the API endpoints. I have added some samples of success and failure
+    cases, but they are not exhaustive. Generally speaking my approach when it comes to testing these endpoints is treat
+    these tests as 'Contract Tests' meaning that for every output I would expect to present to the API's Clients I would
+    have a test to confirm that that output is as expected and conforms with the contract for that endpoint
+ */
+
 @AutoConfigureMockMvc(addFilters = false)
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(PaymentPlanController.class)
@@ -38,6 +45,8 @@ class PaymentPlanControllerTest {
     /*
         This is a quirk form initialising data in the initialise function in the applications' entry point. Normally
         this wouldn't be required in these unit tests.
+
+        Can Be removed if the initialize function is removed form the Application entry point
      */
     @MockBean
     private PaymentPlanRepository paymentPlanRepository;

@@ -38,3 +38,4 @@ convenience.
 6. I also added examples of validation annotations that could be used on the PaymentPlan model. This allows us to
    validate the input coming in form the API's clients and return a formatted error to the client using the exception
    handler method at the bottom of the controller.
+
